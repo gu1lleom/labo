@@ -19,12 +19,13 @@ require("lightgbm")
 require("xgboost")
 
 # Poner la carpeta de la materia de SU computadora local
-setwd("/home/aleb/dmeyf2022")
+setwd("C:\\Repos\\Maestria\\DM_EyF\\")
 # Poner sus semillas
-semillas <- c(17, 19, 23, 29, 31)
+semillas <- c(102433 , 525299, 712561, 984427, 363373)
+
 
 # Cargamos los datasets y nos quedamos solo con 202101 y 202103
-dataset <- fread("./datasets/competencia2_2022.csv.gz")
+dataset <- fread("./datasets/competencia2_2022.csv")
 marzo <- dataset[foto_mes == 202103]
 mayo <- dataset[foto_mes == 202105]
 rm(dataset)
@@ -65,7 +66,7 @@ colnames(new_features)[150:173]
 ## Step 4: Entendiendo como se construyen.
 ## ---------------------------
 
-xgb.plot.tree(colnames(new_features), xgb_model, trees = 0)
+xgb.plot.tree(colnames(new_features), xgb_model, trees = 1)
 
 
 ## ---------------------------
@@ -171,3 +172,4 @@ idx[list_canaritos]
 # En que posiciones aprecieron el resto de las variables generadas
 list_new_features <- grepl("V\\d+", var_importance)
 idx[list_new_features]
+

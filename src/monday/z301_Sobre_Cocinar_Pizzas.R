@@ -24,9 +24,9 @@ require("DiceKriging")
 require("mlrMBO")
 
 # Poner la carpeta de la materia de SU computadora local
-setwd("/home/aleb/dmeyf2022")
+setwd("C:\\Repos\\Maestria\\DM_EyF\\")  #Establezco el Working Directory
 # Poner sus semillas
-semillas <- c(17, 19, 23, 29, 31)
+semillas <- c(102433 , 525299, 712561, 984427, 363373)
 
 # Cargamos el dataset
 dataset <- fread("./datasets/competencia1_2022.csv")
