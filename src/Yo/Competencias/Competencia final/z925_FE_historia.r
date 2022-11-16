@@ -163,7 +163,7 @@ AgregaVarRandomForest  <- function( num.trees, max.depth, min.node.size, mtry)
 
   dataset_rf  <- copy( dataset[ , campos_buenos, with=FALSE] )
   azar  <- runif( nrow(dataset_rf) )
-  dataset_rf[ , entrenamiento := as.integer( foto_mes>= 202101 &  foto_mes<= 202103 & ( clase01==1 | azar < 0.10 )) ]
+  dataset_rf[ , entrenamiento := as.integer( foto_mes>= 202103 &  foto_mes<= 202105 & ( clase01==1 | azar < 0.10 )) ]
 
   #imputo los nulos, ya que ranger no acepta nulos
   #Leo Breiman, ¿por que le temias a los nulos?
@@ -246,7 +246,7 @@ CanaritosAsesinos  <- function( canaritos_ratio=0.2 )
   campos_buenos  <- setdiff( colnames(dataset), c("clase_ternaria","clase01", "foto_mes" ) )
 
   azar  <- runif( nrow(dataset) )
-  dataset[ , entrenamiento := foto_mes>= 202101 &  foto_mes<= 202103  & ( clase01==1 | azar < 0.10 ) ]
+  dataset[ , entrenamiento := foto_mes>= 202103 &  foto_mes<= 202105  & ( clase01==1 | azar < 0.10 ) ]
 
   dtrain  <- lgb.Dataset( data=    data.matrix(  dataset[ entrenamiento==TRUE, campos_buenos, with=FALSE]),
                           label=   dataset[ entrenamiento==TRUE, clase01],
@@ -254,9 +254,9 @@ CanaritosAsesinos  <- function( canaritos_ratio=0.2 )
                           free_raw_data= FALSE
                         )
 
-  dvalid  <- lgb.Dataset( data=    data.matrix(  dataset[ foto_mes==202105, campos_buenos, with=FALSE]),
-                          label=   dataset[ foto_mes==202105, clase01],
-                          weight=  dataset[ foto_mes==202105, ifelse(clase_ternaria=="BAJA+2", 1.0000001, 1.0)],
+  dvalid  <- lgb.Dataset( data=    data.matrix(  dataset[ foto_mes==202107, campos_buenos, with=FALSE]),
+                          label=   dataset[ foto_mes==202107, clase01],
+                          weight=  dataset[ foto_mes==202107, ifelse(clase_ternaria=="BAJA+2", 1.0000001, 1.0)],
                           free_raw_data= FALSE
                           )
 
@@ -267,7 +267,7 @@ CanaritosAsesinos  <- function( canaritos_ratio=0.2 )
                  boost_from_average= TRUE,
                  feature_pre_filter= FALSE,
                  verbosity= -100,
-                 seed= 999983,
+                 seed= 102433,
                  max_depth=  -1,         # -1 significa no limitar,  por ahora lo dejo fijo
                  min_gain_to_split= 0.0, #por ahora, lo dejo fijo
                  lambda_l1= 0.0,         #por ahora, lo dejo fijo
