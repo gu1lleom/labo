@@ -1,3 +1,11 @@
+#1FF - 05_04 - 5_25
+# MMM     MMM   OOOOOO   DDDDDD    EEEEEEEE  LL         OOOOOO
+# MMMM   MMMM  OO    OO  DD   DDD  EE        LL        OO    OO
+# MM MM MM MM  OO    OO  DD    DD  EEEE      LL        OO    OO
+# MM  MMM  MM  OO    OO  DD    DD  EEEE      LL        OO    OO
+# MM   M   MM  OO    OO  DD   DDD  EE        LL        OO    OO
+# MM       MM   OOOOOO   DDDDDD    EEEEEEEE  LLLLLLLL   OOOOOO     1FF - 05_04
+
 #Necesita para correr en Google Cloud
 #  64 GB de memoria RAM
 # 256 GB de espacio en el disco local
@@ -117,7 +125,8 @@ fwrite( dataset[ fold_train + fold_validate + fold_test >= 1 , ],
 #  BB  BB   OO   OO
 #  BB  BBB  OO   OO
 #  BB  BB   OO   OO
-#  BBBBB     OOOOO
+#  BBBBB     OOOOO		1FF - 05_04 - 5_25
+
 
 
 
